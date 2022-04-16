@@ -1,36 +1,34 @@
 import React from 'react';
 import '../css/Form.css';
-// import { Link } from 'react-router-dom';
 import {useState} from 'react';
 
-function Form() {
 
-    var visible=false;
 
-    const check=(visible)=>{
-        if(visible===false)
-        return true;
-        else
-        return false;
-    }
-
-    const hi=()=>{
-        visible=true;
-        console.log("vuscvs");
-        check(visible);
-    }
+ export default function Form() {
+    
+    
+    const [show, setShow] = useState(false);
     const [submit,setsubmit]=useState("");
+    const showdiv = (e)=>{
+        e.preventDefault();
 
-    // const Click=()=>{
-    //     console.log(submit);
-    // }
+        setShow(true);
+};
+  
+        
+    
+       
+ 
+    
+   
 
   return(
-      <>
-      {(check(visible))?     
-             <div className="container">
+      
+      
+        
+             <div className="container" >
           
-        <div className="screen">
+        <div className="screen" style={{display:show?"none":"block"}} >
         
             <div className="screen__content">
             <h1 id="heading">
@@ -41,12 +39,9 @@ function Form() {
                         <i className="login__icon fas fa-user"></i>
                         <input type="email" className="login__input" placeholder="Enter Email" onChange={(event)=>{setsubmit(event.target.value)}}/>
                     </div>
-                    {/* <div className="login__field">
-                        <i className="login__icon fas fa-lock"></i>
-                        <input type="otp" className="login__input" placeholder="OTP"/>
-                    </div> */}
-                    <button className="button login__submit" onClick={hi}>
-                        <span className="button__text">Generate OTP</span>
+                  
+                    <button className="button login__submit"  onClick={showdiv} >
+                        <span className="button__text" >Generate OTP</span>
                         <i className="button__icon fas fa-chevron-right"></i>
                     </button>			
                 </form>
@@ -58,12 +53,13 @@ function Form() {
                 <span className="screen__background__shape screen__background__shape1"></span>
             </div>		
         </div>
-    </div>
-    :
-    <>
-    <div className="container">
+    {/* </div> */}
+    
+    
+    
+    {/* <div className="container" > */}
           
-          <div className="screen">
+          <div className="screen" style={{display:show?"block":"none"}} >
               <div>
                   <h1>
                       dhsigdbis
@@ -77,11 +73,12 @@ function Form() {
             </div>
             </div>
             </div>
-            </>
-}
-</>
-  );
+            
+    
+
+
+  )
  
 }
 
-export default Form;
+// export default Form;
