@@ -1,18 +1,18 @@
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Form from './components/Form';
 import Form1 from './components/Form1';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   return(
     <>
   
-      <BrowserRouter>
+      <Router>
        <Switch>
-         <Route path='/' exact component={Form} />
-         <Route path='/form1' exact component={Form1} />
+         <Route  path="/" exact component={Form} />
+         <Route  path="/form1" exact component={Form1} />
        </Switch>
-     </BrowserRouter>
+     </Router>
     </>
    );
 }
